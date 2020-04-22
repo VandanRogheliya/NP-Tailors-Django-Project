@@ -608,14 +608,14 @@ def Signin(request):
         user = auth.authenticate(username=unn, password=pa)
         if user is None:
             messages.info(request, 'Invalide Username or Password')
-            return render(request, 'Signin.html')
+            return render(request, 'signin.html')
 
         else:
             auth.login(request, user)
             return redirect('/dashboard')
 
     else:
-        return render(request, 'Signin.html')
+        return render(request, 'signin.html')
 
 
 def Signout(request):
