@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			content="width=device-width, initial-scale=1.0"
+			name="viewport"
+		/>
+
+		<title>{% block title %}{% endblock %}</title>
+		<meta content="" name="descriptison" />
+		<meta content="" name="keywords" />
+
+		<!-- Backend -->
+		<script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+		<script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+
+		<script src="{% static 'scripts/list.min.js' %}"></script>
+
+		<!-- Favicons -->
+		<link href="{% static 'resources/NPLogo1Update.png' %}" rel="icon" />
+		<link
+			href="{% static 'resources/NPLogo1.png' %}"
+			rel="apple-touch-icon"
+		/>
+
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
+			rel="stylesheet"
+		/>
+
+		<!-- Vendor CSS Files -->
+		<link
+			href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+			rel="stylesheet"
+		/>
+		<link
+			href="{% static 'assets/vendor/icofont/icofont.min.css' %}"
+			rel="stylesheet"
+		/>
+		<link
+			href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}"
+			rel="stylesheet"
+		/>
+		<link
+			href="{% static 'assets/vendor/venobox/venobox.css' %}"
+			rel="stylesheet"
+		/>
+		<link
+			href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}"
+			rel="stylesheet"
+		/>
+		<link
+			href="{% static 'assets/vendor/aos/aos.css' %}"
+			rel="stylesheet"
+		/>
+
+		<!-- Template Main CSS File -->
+		<link
+			href="{% static 'assets/css/style.css' %}"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body>
+		<!-- ======= Header ======= -->
+		<header id="header" class="fixed-top">
+			<div class="container-fluid d-flex">
+				<div class="logo mr-auto">
+					<a href="{% url 'index' %}"
+						><img
+							src="{% static 'resources/NPLogoUpdate.png' %}"
+							alt=""
+							class="img-fluid"
+					/></a>
+				</div>
+
+				<nav class="nav-menu d-none d-lg-block">
+					<ul>
+						<li class="active">
+							<a href="{% url 'index' %}">Home</a>
+						</li>
+						<li><a href="{% url 'index' %}#about">About Us</a></li>
+						<li><a href="{% url 'index' %}#pattern">Patterns</a></li>
+						<li>
+							<a href="{% url 'index' %}#contact" class="contactFix"
+								>Contact Us</a
+							>
+						</li>
+						{% if user.is_authenticated %}
+						<li>
+							<a href="{% url 'dashboard' %}">Dashboard</a>
+						</li>
+						<li><a href="{% url 'Signout' %}">Sign Out</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+				<!-- .nav-menu -->
+			</div>
+		</header>
+		<!-- End Header -->
+
+		{% block body %}{% endblock %}
+
+		<footer id="footer">
+			<div class="footer-top">
+				<div class="container">
+					<div class="row">
+						<div
+							class="col-lg-6 col-md-12 footer-contact"
+							data-aos=""
+							data-aos-delay="100"
+						>
+							<h3>NP Tailors</h3>
+							<p>
+								Dharmendar Road <br />
+								Rajkot - 360001<br />
+								India <br /><br />
+								<strong>Phone:</strong> +91 98981 25159<br />
+								<strong>Email:</strong>
+								shailesh_np2000@yahoo.com<br />
+							</p>
+						</div>
+						<!-- style="margin-left: 100px;" -->
+						<div
+							class="col-lg-3 col-md-12 footer-links"
+							data-aos=""
+							data-aos-delay="200"
+							id="usefulLinks"
+						>
+							<h4>Useful Links</h4>
+							<ul>
+								<li class="active">
+									<a href="{% url 'index' %}">Home</a>
+								</li>
+								<li>
+									<a href="{% url 'index' %}#about">About Us</a>
+								</li>
+								<li>
+									<a href="{% url 'index' %}#pattern">Patterns</a>
+								</li>
+								{% if user.is_authenticated %}
+								<li>
+									<a href="{% url 'dashboard' %}">Dashboard</a>
+								</li>
+								<li><a href="{% url 'Signout' %}">Sign Out</a></li>
+								{% else %}
+								<li><a href="{% url 'Signin' %}">Sign In</a></li>
+								{% endif %}
+
+								<li>
+									<a href="{% url 'index' %}#contact">Contact Us</a>
+								</li>
+							</ul>
+						</div>
+
+						<div
+							class="col-lg-3 col-md-12 footer-links"
+							data-aos=""
+							data-aos-delay="400"
+							style="text-align: center;"
+						>
+							<h4>Follow us on Instagram</h4>
+
+							<div class="social-links mt-3">
+								<a
+									href="https://instagram.com/n.p_tailors?igshid=ocbhmda1ajay"
+									class="instagram"
+									target="_blank"
+									><i class="bx bxl-instagram"></i
+								></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container py-4">
+				<div class="copyright">
+					&copy; Copyright <strong><span>NP Tailors</span></strong
+					>. All Rights Reserved
+				</div>
+				<!-- <div class="credits">
+					Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+				</div> -->
+			</div>
+		</footer>
+		<!-- End Footer -->
+
+		<a href="#" class="back-to-top"
+			><i class="icofont-simple-up"></i
+		></a>
+
+		<!-- Vendor JS Files -->
+		<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+		<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+		<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+		<script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
+		<script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+
+		<!-- Template Main JS File -->
+		<script src="{% static 'assets/js/main.js' %}"></script>
+	</body>
+</html>

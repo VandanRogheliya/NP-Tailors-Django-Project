@@ -1,0 +1,65 @@
+.jumbotron {
+	background-color: #fef8f5ed;
+}
+
+#portfolio {
+	padding: 0;
+	margin: 0;
+}
+
+.portfolio .portfolio-wrap::before {
+	background: #eb5c1ea6;
+	transition: all ease-in-out 0s;
+}
+
+.portfolio .portfolio-wrap .portfolio-info {
+	top: 35%;
+	transition: all ease-in-out 0.3s;
+}
+
+.portfolio .portfolio-wrap .portfolio-info h4 {
+	font-family: ATS-Script, "Times New Roman", Times, serif;
+	font-size: 60px;
+	color: #fff;
+	font-weight: 600;
+}
+
+a[type="submit"] {
+	background-color: #eb5d1e;
+	border: none;
+	color: white;
+	padding: 15px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 16px;
+	-webkit-box-shadow: 0 10px 30px 0 #eb5c1ea6;
+	box-shadow: 0 10px 30px 0 #eb5c1ea6;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	margin: 0px 0px 0px 6px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+a[type="submit"]:hover {
+	background-color: #eb5d1e;
+}
+
+a[type="submit"]:active {
+	-moz-transform: scale(0.95);
+	-webkit-transform: scale(0.95);
+	-o-transform: scale(0.95);
+	-ms-transform: scale(0.95);
+	transform: scale(0.95);
+}
+
+@media screen and (max-width: 361px) {
+	a[type="submit"] {
+		font-size: 11px;
+	}
+}

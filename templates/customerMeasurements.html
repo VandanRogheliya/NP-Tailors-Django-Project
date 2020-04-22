@@ -1,0 +1,75 @@
+{% extends "base.html" %} {% load static %} {% block title %}Customer Measurements | NP Tailors{% endblock %} {% block body %}
+<link rel="stylesheet" href="{% static 'styles/password_reset_form.css' %}">
+<section class="mt-5">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="section-title" data-aos="fade-up">
+					<h2>Name</h2>
+					<p>{{fn}} {{ln}}</p>
+				</div>
+
+				<table class="table table-striped mt-3" data-aos="fade-up">
+					<thead>
+						<th>
+							#
+						</th>
+						<th>
+							Measurement(inches)
+						</th>
+						<th>
+							Body Part
+						</th>
+					</thead>
+
+					<tbody class="properCase">
+						{% for m in Measure %}
+						<tr>
+							<td class="demo"></td>
+							<td>
+								{{m.value}}
+							</td>
+							<td>
+								{{m.bodypart}}
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div class="col-12">
+				<form action="edit" method="post">
+					{% csrf_token %}
+
+					<input name="id" value="{{id}}" type="hidden">
+					<input type="hidden" name="EditNow" id="" value="0">
+
+					<input type="submit" value="Edit" data-aos="fade-up">
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 d-flex justify-content-center">
+				<div class="section-title" data-aos="fade-up">
+					<h2>Reference</h2>
+					<p>Measurement Reference</p>
+				</div>
+			</div>
+			<div class="col-12 d-flex justify-content-center mt-5">
+				<img
+					src="{% static 'resources/Measurements.jpeg' %}"
+					alt=""
+					data-aos="fade-up"
+					width="100%"
+				/>
+			</div>
+		</div>
+	</div>
+</section>
+<script src="{% static 'scripts/editProfile.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% load static %} {% block title %}Sign In |
+NP Tailors{% endblock %} {% block body %}
+<link rel="stylesheet" href="{% static 'styles/signin.css' %}">
+<section id="services" class="services section-bg">
+	<div class="container pt-2 mt-5">
+		<div class="section-title" data-aos="fade-up">
+			<h2 class="">Only for admin.</h2>
+			<p>Sign In</p>
+		</div>
+
+		<div class="row d-flex justify-content-center">
+
+			<div
+				class="col-md-6 col-lg-4 d-flex align-items-stretch"
+				data-aos="zoom-in"
+				data-aos-delay="100"
+			>
+				<div class="icon-box">
+					<div class="icon"> 
+						<img src="{% static 'resources/NPLogoUpdate.png' %}" alt="" width="80%">	 
+					</div>
+					<form action="Signin" method="POST">
+					{% csrf_token %}
+					<input
+						type="text"
+						placeholder="Phone No."
+						name="username"
+					/>
+					<br>
+					<input
+						type="password"
+						placeholder="Password"
+						name="password"
+					/>
+					<br>
+					<input type="submit" value="Log in" />
+					<br>
+				</form>
+				{% for message in messages %}
+				<div class="alert alert-warning">{{message}}</div>
+				{% endfor %}
+				<div>
+					<a href="{% url 'password_reset' %}">Forgot password?</a>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+{% endblock %}

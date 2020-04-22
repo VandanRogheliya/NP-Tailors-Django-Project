@@ -1,0 +1,101 @@
+{% extends "base.html" %} {% load static %} {% block title %}My
+Profile | NP Tailors{% endblock %} {% block body %}
+
+<link rel="stylesheet" href="{% static 'styles/dashboard.css' %}" />
+
+
+<section class="mt-5">
+	<div class="container">
+		<div class="section-title" data-aos="fade-up">
+			<h2>Dashboard</h2>
+			<p>Manage customers, employees, site and account</p>
+		</div>
+
+		<div id="users" class="row"data-aos="fade-up">
+			<input
+				type="search"
+				class="search"
+				placeholder="Search customer"
+			/>
+			<br />
+			<div class="col-12 m-0 tableStyle" >
+
+			<table class="table table-striped mt-3">
+				<thead>
+					<th class="sort" data-sort="id">
+						ID
+					</th>
+					<th class="sort" data-sort="first_name">
+						First Name
+					</th>
+					<th class="sort" data-sort="last_name">
+						Last Name
+					</th>
+					<th class="sort" data-sort="first_name">
+						Links
+					</th>
+				</thead>
+				<tbody class="list properCase">
+					{% for user in users %}
+					<tr>
+						<td class="id">
+							{{user.id}}.
+						</td>
+						<td class="first_name">
+							{{user.first_name}}
+						</td>
+						<td class="last_name">{{user.last_name}}</td>
+						<td>
+							<form action="customerMeasurements" method="post">
+								{% csrf_token %}
+								<input name="id" value="{{user.id}}" type="hidden"/>
+								<input
+									type="submit"
+									class="measurementButton"
+									value="open"
+								/>
+							</form>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+
+			<a
+				href="http://{{request.META.HTTP_HOST}}/admin/auth/user/add/"
+				target="_blank"
+				type="button"
+				class="m-2 mt-3"
+			>
+				Add New Employee
+			</a>
+
+			<a
+				href="{% url 'addCustomer' %}"
+				type="button"
+				class="m-2 mt-3"
+			>
+				Add New Customer
+			</a>
+			<a
+				href="http://{{request.META.HTTP_HOST}}/admin/imageLoader/"
+				target="_blank"
+				type="button"
+				class="m-2 mt-3"
+			>
+				Manage Images
+			</a>
+			<a
+				href="{% url 'resetPassword' %}"
+				type="button"
+				class="m-2 mt-3"
+			>
+				Change Password	
+			</a>
+		</div>
+
+		<script src="{% static 'scripts/sortingAndSearching.js' %}"></script>
+	</div>
+</section>
+{% endblock %}
