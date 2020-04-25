@@ -79,7 +79,7 @@
 
 				<nav class="nav-menu d-none d-lg-block">
 					<ul>
-						<li class="active">
+						<li class="homeActive">
 							<a href="{% url 'index' %}">Home</a>
 						</li>
 						<li><a href="{% url 'index' %}#about">About Us</a></li>
@@ -90,7 +90,7 @@
 							>
 						</li>
 						{% if user.is_authenticated %}
-						<li>
+						<li class="dashboardActive">
 							<a href="{% url 'dashboard' %}">Dashboard</a>
 						</li>
 						<li><a href="{% url 'Signout' %}">Sign Out</a></li>
@@ -203,5 +203,7 @@
 
 		<!-- Template Main JS File -->
 		<script src="{% static 'assets/js/main.js' %}"></script>
+		<script src="{% static 'scripts/dashboard.js' %}"></script>
+
 	</body>
 </html>
