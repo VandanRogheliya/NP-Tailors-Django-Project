@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '()n0&__!+ygc3oygxn5#gir%h=(3(r5%t_ytl+c7du))0ao9o+'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '192.168.43.161',
@@ -51,8 +51,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'nptailors1@gmail.com'
-EMAIL_HOST_PASSWORD = 'v9898125159@'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 
 
@@ -93,10 +93,10 @@ WSGI_APPLICATION = 'NP.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nptailorsdb',
-        'USER': 'nptailors',
-        'PASSWORD': 'v9898125159',
-        'HOST': 'nptailorsdb.cvhjttscb7j0.us-east-2.rds.amazonaws.com',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '5432'
     }
 }
