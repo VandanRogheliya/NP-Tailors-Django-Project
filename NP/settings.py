@@ -42,9 +42,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'storages',
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'nptailors1@gmail.com'
+EMAIL_HOST_PASSWORD = 'v9898125159@'
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,10 +93,11 @@ WSGI_APPLICATION = 'NP.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'NPTailors',
-        'USER': 'postgres',
-        'PASSWORD': '9898125159@',
-        'HOST': 'localhost'
+        'NAME': 'nptailorsdb',
+        'USER': 'nptailors',
+        'PASSWORD': 'v9898125159',
+        'HOST': 'nptailorsdb.cvhjttscb7j0.us-east-2.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -136,18 +147,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# #security settings
-# SECURE_SSL_REDIRECT = True
-
-# SESSION_COOKIE_SECURE = True
-
-# CSRF_COOKIE_SECURE = True
-
-# SECURE_HSTS_SECONDS = 3600
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_HSTS_PRELOAD = True
-
-# SECURE_REFERRER_POLICY = 'origin'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

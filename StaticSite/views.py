@@ -511,12 +511,14 @@ def edit(request):
 
 
 def index(request):
-    dresses = DressesImages.objects.all()
-    handWorks = HandWorkImages.objects.all()
-    chaniyaCholis = ChaniyaCholiImages.objects.all()
-    blouses = BlouseImages.objects.all()
+    chaniyaCholis = list(range(1, 20))
+    dresses = list(range(1, 16))
+    handWorks = list(range(1, 33))
+    blouses = list(range(1, 20))
 
     return render(request, 'index.html', {'dresses': dresses, 'handWorks': handWorks, 'chaniyaCholis': chaniyaCholis, 'blouses': blouses})
+    # return render(request, 'index.html')
+
 
 
 def dashboard(request):
