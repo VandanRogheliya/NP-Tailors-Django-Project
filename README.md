@@ -5,7 +5,7 @@ This Django project was made for tailoring business, NP Tailors. This web applic
 
 ## Technologies used
 - Django (Backend)
-- JavaScript, jQuery
+- JavaScript, jQuery, list.js
 - HTML
 - CSS, Bootstrap
 - Heroku (Deployment)
